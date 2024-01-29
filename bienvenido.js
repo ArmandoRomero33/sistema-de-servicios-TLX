@@ -11,4 +11,3 @@ function capturarFirma() {
     var datosFirma = firmaCanvas.toDataURL(); // Convertir la firma a datos URL
     document.getElementById('datos_firma').value = datosFirma;
 }
-
