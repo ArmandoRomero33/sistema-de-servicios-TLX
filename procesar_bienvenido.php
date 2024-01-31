@@ -21,6 +21,9 @@ $estado = $_POST['estado'];
 $cp = $_POST['cp'];
 $rfc = $_POST['rfc'];
 $tefono = $_POST['telefono'];
+$paquete = $_POST['paquete'];    // Obtener el valor del campo "Paquete"
+$tarifa = $_POST['tarifa'];      // Obtener el valor del campo "Tarifa"
+
 
 
 // Ruta de la plantilla PDF
@@ -36,7 +39,7 @@ $pdf->SetAuthor('Tlaxicom');
 $pdf->SetTitle('Contrato');
 
 // Agregar una página
-$pdf->AddPage(2);
+$pdf->AddPage(1);
 
 // Configurar fuentes y estilos
 $pdf->SetFont('helvetica', '', 12);
@@ -44,6 +47,8 @@ $pdf->SetFont('helvetica', '', 12);
 // Cargar la plantilla como fondo y ajustar al tamaño de la página
 $templateImg = 'contrato_en_img/contrato1.jpg';  // Cambia 'plantilla.png' por el nombre de tu plantilla
 $pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5, '', '', '', false, 300, '', false, false, 0);
+
+
 
 
 
@@ -98,16 +103,27 @@ $pdf->Text(190, 69, $cp);
 $pdf->SetXY(135, 83); // Posición para el RFC
 $pdf->Text(135, 83, $rfc);
 
-// Rellenar campos de formulario
-$pdf->SetXY(82, 83); // Posición para el RFC
-$pdf->Text(82, 83, $tefono);
+
+
+$pdf->SetXY(35, 93); // Posición para el Paquete
+$pdf->Text(35, 93, $paquete);
+
+$pdf->SetXY(129, 115); // Posición para la Tarifa
+$pdf->Text(129, 115, $tarifa);
 
 
 
 
 
+// Agregar una página
+$pdf->AddPage(2);
 
+// Configurar fuentes y estilos
+$pdf->SetFont('helvetica', '', 12);
 
+// Cargar la plantilla como fondo y ajustar al tamaño de la página
+$templateImg = 'contrato_en_img/2.jpg';  // Cambia 'plantilla.png' por el nombre de tu plantilla
+$pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5, '', '', '', false, 300, '', false, false, 0);
 
 
 
@@ -117,21 +133,23 @@ $pdf->Text(82, 83, $tefono);
 $imagenWidth = 85; // Ancho de las imágenes
 $imagenHeight = 50; // Altura de las imágenes
 
+
+
 // Insertar imagen JPG
 if (!empty($_FILES['imagen_jpg']['tmp_name'])) {
     $pdf->Image($_FILES['imagen_jpg']['tmp_name'], 50, 120, $imagenWidth, $imagenHeight);
 }
 
 // Insertar imagen PNG con separación
+
 if (!empty($_FILES['imagen_png']['tmp_name'])) {
     $pdf->Image($_FILES['imagen_png']['tmp_name'], 50 + $imagenWidth + 10, 120, $imagenWidth, $imagenHeight);
 }
 
-// Insertar la firma desde el campo oculto (en formato base64)
-$firmaCapturada = $_POST['datos_firma'];
-if (!empty($firmaCapturada)) {
-    $pdf->Image('@' . $firmaCapturada, 50 + 2 * ($imagenWidth + 10), 120, $imagenWidth, $imagenHeight);
-}
+
+
+
+// 
 
 // Salvar el PDF al servidor o enviarlo al navegador
 ob_start(); // Iniciar el almacenamiento en búfer de salida

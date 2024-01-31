@@ -15,9 +15,10 @@ if (!isset($_SESSION['usuario'])) {
     <title>Bienvenido, <?php echo $_SESSION['usuario']; ?>!</title>
     <script src="bienvenido.js"></script>
     <link rel="stylesheet" href="styles/bienvenido.css">
-    <!-- Agrega el script de JavaScript para acceder a la cámara -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
-    
+
+
+
+
 </head>
 <body>
     <h2>Bienvenido, <?php echo $_SESSION['usuario']; ?>! Te encuentras en el módulo de contratos.</h2>
@@ -38,23 +39,13 @@ C.P: <input type="text" name="cp" required><br>
 RFC: <input type="text" name="rfc" required><br>
 Telefono: <input type="text" name="telefono" require><br>
 
+Paquete: <input type="text" name="paquete"  required><br>
+Tarifa: <input type="text" name="tarifa" required><br>
 
         
         <!-- Campo de carga de archivos para imágenes -->
         Imagen (JPG): <input type="file" name="imagen_jpg" id="imagen_jpg"><br>
         Imagen (PNG): <input type="file" name="imagen_png"><br>
-
-        <!-- Área de firma -->
-        <label>Firma:</label>
-        <div>
-            <canvas id="firmaCanvas" width="400" height="200" style="border:1px solid #000;"></canvas>
-        </div>
-
-        <!-- Botón para borrar la firma -->
-        <button type="button" onclick="borrarFirma()">Borrar Firma</button>
-
-        <!-- Campo oculto para almacenar los datos de la firma -->
-        <input type="hidden" name="datos_firma" id="datos_firma">
 
         <!-- ... tu botón de submit u otros campos ... -->
 
