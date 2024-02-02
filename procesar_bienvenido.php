@@ -35,7 +35,38 @@ $opcionSeleccionada = $_POST['opciones'];
 $contenido = $_POST['contenido'];
 $contenido2 = $_POST['contenido2'];
 $contenido2 = $_POST['contenido3'];
+
+
+
+
+
+
 $correo = $_POST['correo'];
+
+if (!empty($correo)) {
+    echo " $correo";
+    $notificacion1 = 'X';
+    $notificacion2 = 'X';
+    $notificacion3 = 'X';
+    // Aquí puedes realizar otras acciones con el correo electrónico
+} else {
+    echo "";
+}
+
+// Puedes agregar más palabras y posiciones según sea necesario
+
+
+
+
+
+//---------------------------------------servicios adicionales-- despliege de cuestionario----------
+$servicio1 = $_POST['servicio1'];
+$descripcion1 = $_POST['descripcion1'];
+$costo1 = $_POST['costo1'];
+
+$servicio2 = $_POST['servicio2'];
+$descripcion2 = $_POST['descripcion2'];
+$costo2 = $_POST['costo2'];
 
 
 
@@ -94,8 +125,8 @@ $pdf->SetXY(35, 69);
 $pdf->Text(35, 69, $calle);
 $pdf->SetXY(82, 69); 
 $pdf->Text(82, 69, $num_ext);
-$pdf->SetXY(90, 69); 
-$pdf->Text(90, 69, $num_int);
+$pdf->SetXY(91, 69); 
+$pdf->Text(91, 69, $num_int);
 $pdf->SetXY(106, 69); 
 $pdf->Text(106, 69, $colonia);
 $pdf->SetXY(132, 69); 
@@ -162,6 +193,36 @@ $pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5
 $pdf->SetXY(77,105);
 $pdf->Text(77,105, $correo);
 
+$pdf->SetXY(42,100);
+$pdf->Text(42,100, $notificacion1);
+$pdf->SetXY(115,100);
+$pdf->Text(115,100, $notificacion2);
+$pdf->SetXY(177,100);
+$pdf->Text(177,100, $notificacion3);
+
+
+
+
+$pdf->SetXY(30,47);
+$pdf->Text(30,47, $servicio1);
+
+$pdf->SetXY(120,47);
+$pdf->Text(120,47, $servicio2);
+
+$pdf->SetXY(25,60);
+$pdf->Text(25,60, $descripcion1);
+
+$pdf->SetXY(115,60);
+$pdf->Text(115,60, $descripcion2);
+
+$pdf->SetXY(103,53);
+$pdf->Text(103,53, $costo1);
+
+$pdf->SetXY(190,53);
+$pdf->Text(190,53, $costo2);
+
+
+
 
 
 
@@ -174,16 +235,97 @@ $pdf->Text(77,105, $correo);
 $imagenWidth = 85; // Ancho de las imágenes
 $imagenHeight = 50; // Altura de las imágenes
 
+///-----------------------------------------------------pagina 3----------------------------------
+
+// Agregar una página
+$pdf->AddPage();
+
+// Configurar fuentes y letra
+$pdf->SetFont('helvetica', '', 10);
+
+// Cargar la plantilla como fondo 
+$templateImg = 'contrato_en_img/3.jpg';  
+$pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5, '', '', '', false, 300, '', false, false, 0);
 
 
+
+
+//-------------------------------------------pagina 4--------------------------------
+
+
+// Agregar una página
+$pdf->AddPage();
+
+// Configurar fuentes y letra
+$pdf->SetFont('helvetica', '', 10);
+
+// Cargar la plantilla como fondo 
+$templateImg = 'contrato_en_img/4.jpg';  
+$pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5, '', '', '', false, 300, '', false, false, 0);
+
+
+//-------------------------------------------------pagina 5------------------------------------
+
+
+// Agregar una página
+$pdf->AddPage();
+
+// Configurar fuentes y letra
+$pdf->SetFont('helvetica', '', 10);
+
+// Cargar la plantilla como fondo 
+$templateImg = 'contrato_en_img/5.jpg';  
+$pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5, '', '', '', false, 300, '', false, false, 0);
+
+//-------------------------------------------------pagina 6------------------------------------
+
+
+// Agregar una página
+$pdf->AddPage();
+
+// Configurar fuentes y letra
+$pdf->SetFont('helvetica', '', 10);
+
+// Cargar la plantilla como fondo 
+$templateImg = 'contrato_en_img/6.jpg';  
+$pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5, '', '', '', false, 300, '', false, false, 0);
+
+//-------------------------------------------------pagina 5------------------------------------
+
+
+// Agregar una página
+$pdf->AddPage();
+
+// Configurar fuentes y letra
+$pdf->SetFont('helvetica', '', 10);
+
+// Cargar la plantilla como fondo 
+$templateImg = '';  
+$pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5, '', '', '', false, 300, '', false, false, 0);
+
+
+
+
+
+
+//------------------------------------insertar imagenes-------------------------------------
+
+
+
+// ...
 
 // Insertar imagen JPG
 if (!empty($_FILES['imagen_jpg']['tmp_name'])) {
-    $pdf->Image($_FILES['imagen_jpg']['tmp_name'], 50, 120, $imagenWidth, $imagenHeight);
+    $pdf->Image($_FILES['imagen_jpg']['tmp_name'], 50, 50, $imagenWidth , $imagenHeight);
 }
+
+// Insertar imagen PNG con un espacio de 3 cm (aproximadamente 28.35 unidades) entre las imágenes
 if (!empty($_FILES['imagen_png']['tmp_name'])) {
-    $pdf->Image($_FILES['imagen_png']['tmp_name'], 50 + $imagenWidth + 10, 120, $imagenWidth, $imagenHeight);
+    $pdf->Image($_FILES['imagen_png']['tmp_name'], 50, 50 + $imagenHeight + 28.35, $imagenWidth, $imagenHeight);
 }
+
+// ...
+
 
 
 ob_start();
