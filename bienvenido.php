@@ -17,13 +17,14 @@ if (!isset($_SESSION['usuario'])) {
     <title>Bienvenido, <?php echo $_SESSION['usuario']; ?>!</title>
     <!-- Agrega la biblioteca signature_pad -->
     <script src="https://unpkg.com/signature_pad"></script>
-    <link rel="stylesheet" href="bienvenido.css">
+    <link rel="stylesheet" href="styles/bienvenido.css">
     
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
 
 </head>
 <body>
-    <h2>Bienvenido, <?php echo $_SESSION['usuario']; ?>! Te encuentras en el módulo de contratos.</h2>
+    
+    <h2>Bienvenido, <?php echo $_SESSION['usuario']; ?>Te encuentras en el módulo de contratos es el primer paso hacia una experiencia única en conectividad.</h2>
  
     <p><a href="cerrar_sesion.php" class="logout-btn">Cerrar sesión</a></p>
 
@@ -61,7 +62,7 @@ if (!isset($_SESSION['usuario'])) {
      Fecha: <input type="date" name="fecha" require><br>
      Hora: <input type="time" name="hora" require><br>
      
-     Instalacion del: <input type="text" name="instalacion" require><br>
+     Instalacion del equipo: <input type="text" name="instalacion" require><br>
 
 
      
@@ -92,6 +93,7 @@ if (!isset($_SESSION['usuario'])) {
 
 <!-- Script JavaScript para manejar la visibilidad de las leyendas -->
 <script>
+    
     document.getElementById('opciones').addEventListener('change', function() {
         var seleccionado = this.value;
         var leyendas = document.getElementById('leyendas');
@@ -137,11 +139,16 @@ if (!isset($_SESSION['usuario'])) {
     <!-- Contenedor para el nuevo cuestionario (inicialmente oculto) -->
     <div id="cuestionario_servicios" style="display: none;">
         <!-- Aquí coloca tu nuevo cuestionario -->
-        <label for="campo_nuevo">Nuevo Campo:</label>
-        <input type="text" name="campo_nuevo">
-        <input type="text" name="campo_nuevo">
-        <input type="text" name="campo_nuevo">
-        <input type="text" name="campo_nuevo">
+        <p>Servicio Adicional</p>
+        Servicio1<input type="text" name="servicio1"><br>
+        Descripcion: <input type="text" name="descripcion1"><br>
+        Costo <input type="text" name="costo1"><br>
+
+        <p>Servicio Adicional</p>
+        Servicio2<input type="text" name="servicio2"><br>
+        Descripcion: <input type="text" name="descripcion2"><br>
+        Costo <input type="text" name="costo2"><br>
+        
      
     </div>
 
@@ -165,14 +172,7 @@ if (!isset($_SESSION['usuario'])) {
 <H1>EL SUSCRIPTOR AUTORIZA SE LE ENVIE POR CORREO ELECTRÓNICO:</H1>
 
 
-Correo<input type="text" name="correo"><br>
-
-
-<form action="procesar_formulario.php" method="post">
-    <label for="completado">¿Has completado el formulario?</label><br>
-    <input type="checkbox" name="completado" id="completado" value="si" checked> Sí<br>
-    <input type="checkbox" name="completado" id="completado" value="no"> No<br>
-  
+¿Cuenta con correo electronico?  de no ser asi puede dejarlo en blanco.<input type="text" name="correo"><br>
 
 
 
@@ -184,33 +184,18 @@ Correo<input type="text" name="correo"><br>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h1>Fotografias del INE</h1>
 
      
 
      
 
         <!-- Campo de carga de archivos para imágenes -->
-        Imagen (JPG): <input type="file" name="imagen_jpg" id="imagen_jpg"><br>
-        Imagen (PNG): <input type="file" name="imagen_png"><br>
+        INE_Frontal <input type="file" name="imagen_jpg" id="imagen_jpg"><br>
+        INE_Trasero<input type="file" name="imagen_png"><br>
 
 
-
+<h1>Firma del suscriptor</h1>
       
 
 

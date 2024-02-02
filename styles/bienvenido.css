@@ -1,0 +1,188 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #343a40;
+}
+
+h2 {
+    color: #000000;
+}
+
+p {
+    margin-top: 10px;
+    color: #6c757d;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.logout-btn {
+    text-align: right;
+    display: inline-block;
+    padding: 10px 14px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    text-align: right;
+    background-color: #c82333;
+}
+
+
+
+/* Estilos para Fecha, Hora e Instalación */
+input[type="date"],
+input[type="time"],
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el selector de opciones_servicios */
+label[for="opciones_servicios"] {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+select#opciones_servicios {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el cuestionario_servicios */
+#cuestionario_servicios {
+    margin-top: 20px;
+}
+
+#cuestionario_servicios label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#cuestionario_servicios input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el botón de mostrar cuestionario */
+#btn_mostrar_cuestionario {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#btn_mostrar_cuestionario:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+/* Estilos para el formulario de métodos de pago */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    appearance: none; /* Elimina el estilo nativo del navegador */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23212121" width="18px" height="18px"><path d="M7 10l5 5 5-5z" /></svg>'); /* Utiliza un círculo como indicador */
+    background-repeat: no-repeat;
+    background-position: right 8px top 50%;
+    background-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#leyendas {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none;
+}
+
+p {
+    margin: 5px 0;
+}
+
+
