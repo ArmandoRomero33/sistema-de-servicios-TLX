@@ -176,8 +176,7 @@ if (!isset($_SESSION['usuario'])) {
 
 
 
-
-
+Fecha: <input type="date" name="fecha_2" require><br>
 
 
 

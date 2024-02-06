@@ -35,9 +35,33 @@ $opcionSeleccionada = $_POST['opciones'];
 $contenido = $_POST['contenido'];
 $contenido2 = $_POST['contenido2'];
 $contenido2 = $_POST['contenido3'];
+$fecha_2 = $_POST['fecha_2'];
 
+$fechaObjeto = new DateTime($fecha_2);
 
+// Mapear nombres de los meses en inglés a español
+$mesesEspañol = array(
+    'January' => 'enero',
+    'February' => 'febrero',
+    'March' => 'marzo',
+    'April' => 'abril',
+    'May' => 'mayo',
+    'June' => 'junio',
+    'July' => 'julio',
+    'August' => 'agosto',
+    'September' => 'septiembre',
+    'October' => 'octubre',
+    'November' => 'noviembre',
+    'December' => 'diciembre'
+);
 
+// Obtener el nombre en español del mes
+$mesEnEspañol = $mesesEspañol[$fechaObjeto->format('F')];
+
+// Formatear la fecha con el día, nombre completo del mes y año en español
+$fecha_2 = $fechaObjeto->format('d') . ' ' . $mesEnEspañol . ' ' . $fechaObjeto->format('Y');
+
+// Ahora puedes usar $fecha_2 como lo necesites en tu código
 
 
 
@@ -73,10 +97,15 @@ $costo2 = $_POST['costo2'];
 
 // Mostrar la leyenda correspondiente en el PDF
 if ($opcionSeleccionada === 'opcion1') {
-    $contenido = 'Carnicería "Sadot" Av. 27 de septiembre #11 Terrenate De lunes a domingo 09:00 am a 05:00 pm';
+    $contenido = 'Carnicería "Sadot"';
+             $conte4 ='Av. 27 de septiembre #11 Terrenate' ;
+              $conte5 = 'lunes a domingo 09:00 am a 05:00 pm';
                  $contenido2 = 'X';
+
 } elseif ($opcionSeleccionada === 'opcion2') {
-    $contenido = 'Yonatan Ugarte Juárez No. de cuenta: 0478144451 Tarjeta: 4555113012650786';
+    $contenido = 'Yonatan Ugarte Juárez';
+                 $conte6 = 'No. de cuenta: 0478144451';
+                 $conte7 = 'Tarjeta: 4555113012650786';
                   $contenido3 = 'X';
 }
 
@@ -131,10 +160,14 @@ $pdf->SetXY(106, 69);
 $pdf->Text(106, 69, $colonia);
 $pdf->SetXY(132, 69); 
 $pdf->Text(132, 69, $alcaldia_municipio);
+
 $pdf->SetXY(162, 69); 
 $pdf->Text(162, 69, $estado);
 $pdf->SetXY(190, 69); 
 $pdf->Text(190, 69, $cp);
+$pdf->SetXY(85, 83); 
+$pdf->Text(85, 83, $tefono);
+
 $pdf->SetXY(135, 83); 
 $pdf->Text(135, 83, $rfc);
 $pdf->SetXY(40, 125); 
@@ -164,8 +197,24 @@ $pdf->SetXY(150,162);
 $pdf->Text(150,162, $instalacion);
 $pdf->SetXY(0,0);
 $pdf->Text(0,0, $opcionSeleccionada);
-$pdf->SetXY(81,215);
-$pdf->Text(81,215, $contenido);
+//----------------------------------referencia transferencia---------
+$pdf->SetXY(81,212);
+$pdf->Text(81,212, $contenido);
+
+$pdf->SetXY(81,216);
+$pdf->Text(81,216, $conte4);
+$pdf->SetXY(81,220);
+$pdf->Text(81,220, $conte5);
+
+
+$pdf->SetXY(81,216);
+$pdf->Text(81,216, $conte6);
+$pdf->SetXY(81,220);
+$pdf->Text(81,220, $conte7);
+
+
+
+
 $pdf->SetXY(81,218);
 $pdf->Text(20,208, $contenido2);
 $pdf->SetXY(81,218);
@@ -192,6 +241,13 @@ $pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5
 
 $pdf->SetXY(77,105);
 $pdf->Text(77,105, $correo);
+
+$pdf->SetXY(88, 213); 
+$pdf->Text(88, 213, $alcaldia_municipio);
+
+$pdf->SetXY(113,213);
+$pdf->Text(113,213, $fecha_2);
+
 
 $pdf->SetXY(42,100);
 $pdf->Text(42,100, $notificacion1);
