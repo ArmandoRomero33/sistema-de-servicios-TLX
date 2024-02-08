@@ -24,7 +24,12 @@ $paquete = $_POST['paquete'];
 $tarifa = $_POST['tarifa'];      
 $marca = $_POST['marca'];
 $modelo = $_POST['modelo'];
-$serie = $_POST['serie'];
+$serie = isset($_POST['serie']) ? $_POST['serie'] : 'N/A';
+
+
+
+
+
 $equipo = $_POST['equipo'];
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];

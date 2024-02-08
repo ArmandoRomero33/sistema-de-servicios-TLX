@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario'])) {
     <title>Bienvenido, <?php echo $_SESSION['usuario']; ?>!</title>
     <!-- Agrega la biblioteca signature_pad -->
     <script src="https://unpkg.com/signature_pad"></script>
-    <link rel="stylesheet" href="bienvenido.css">
+    <link rel="stylesheet" href="bienvenidos.css">
     
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
   
@@ -30,7 +30,9 @@ if (!isset($_SESSION['usuario'])) {
         <!-- Puedes agregar enlaces u otros elementos aquí -->
         <ul>
         <h2>Bienvenido, <?php echo $_SESSION['usuario']; ?></h2>
-          <h2>Te encuentras en el módulo de contratos.</h2>
+         
+          <li><img src="img/tlax.png" width="400"></li>
+          
         </ul>
     </nav>
     
@@ -55,20 +57,22 @@ if (!isset($_SESSION['usuario'])) {
         <h1>Servicio de Internet Fijo en Casa</h1>
 
         Paquete: <input type="text" name="paquete" required><br>
-        Tarifa: <input type="text" name="tarifa" required><br>
+        Tarifa: <input type="number" name="tarifa" required><br>
      
      <h1>Datos del equipo Compra Venta</h1>
 
        Marca:<input type="text" name="marca" required><br>
        Modelo:<input type="text" name="modelo" required><br>
-       Serie:<input type="text" name="serie" required><br>
-       NO.Equipos:<input type="text" name="equipo" required><br>
+       Serie:<input type="text" name="serie" ><br>
+
+       
+       NO.Equipos:<input type="number" name="equipo" required><br>
        
      <h1>Instalacion del Equipo</h1>
 
  
-     Fecha: <input type="date" name="fecha" require><br>
-     Hora: <input type="time" name="hora" require><br>
+     Fecha: <input type="date" name="fecha" required><br>
+     Hora: <input type="time" name="hora" required><br>
      
      
 
@@ -139,7 +143,7 @@ if (!isset($_SESSION['usuario'])) {
     
     <!-- ....................... (Despliege de preguntas para servicios extra)............... -->
     <label for="opciones_servicios">¿Deseas agregar servicios adicionales?</label>
-<select id="opciones_servicios" name="opciones_servicios">
+<select id="opciones_servicios" name="opciones_servicios" required>
     <option value="">---seleccione una opcion---</option>
     <option value="no">No</option>
     <option value="si">Sí</option>
@@ -151,12 +155,12 @@ if (!isset($_SESSION['usuario'])) {
     <p>Servicio Adicional</p>
     Servicio1<input type="text" name="servicio1" value="-------------------------------------------------------------------"><br>
     Descripcion: <input type="text" name="descripcion1" value="----------------------------------------------------------------------"><br>
-    Costo <input type="text" name="costo1" value="-----"><br>
+    Costo <input type="number" name="costo1" value="-----"><br>
 
     <p>Servicio Adicional</p>
     Servicio2<input type="text" name="servicio2" value="--------------------------------------------------------------------"><br>
     Descripcion: <input type="text" name="descripcion2" value="-----------------------------------------------------------------------"><br>
-    Costo <input type="text" name="costo2" value="-------"><br>
+    Costo <input type="number" name="costo2" value="-------"><br>
 </div>
 
 <!-- Botón para mostrar el cuestionario -->
@@ -206,7 +210,7 @@ if (!isset($_SESSION['usuario'])) {
 
 
 
-Fecha del cotrato: <input type="date" name="fecha_2" require><br>
+Fecha del cotrato: <input type="date" name="fecha_2" required><br>
 
 
 
@@ -217,11 +221,71 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
 <form method="post" action="procesar.php" enctype="multipart/form-data">
     <!-- Otros campos del formulario -->
     <label for="foto1">Foto 1:</label>
-    <input type="file" name="foto1" accept="image/*" capture="camera">
+    <input type="file" name="foto1" accept="image/*" capture="camera" required>
     
     <label for="foto2">Foto 2:</label>
-    <input type="file" name="foto2" accept="image/*" capture="camera">
+    <input type="file" name="foto2" accept="image/*" capture="camera" required>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="file"]:hover {
+            border-color: #333;
+        }
+
+        input[type="file"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 
 
 
@@ -233,13 +297,13 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
 <h1>Firma del suscriptor</h1>
 
     <!-- Contenedor para el canvas de la firma -->
-<div id="firmaContainer" style="border: 1px solid #000; width: 100%; height: 200px; position: relative;">
-    <canvas id="firmaCanvas" width="600" height="200" style="border: 1px solid #000; position: absolute; left: 0; top: 0;"></canvas>
+<div id="firmaContainer" style="border: 1px solid #000; width: 320px; height: 200px; position: relative;">
+    <canvas id="firmaCanvas" width="320" height="200" style="border: 1px solid #000; position: absolute; left: 0; top: 0;"></canvas>
 </div>
 <br>
 
     <!-- Campo oculto para almacenar la firma como imagen base64 -->
-    <input type="hidden" name="firma" id="firma">
+    <input type="hidden" name="firma" id="firma" required>
 
     <!-- Botón para borrar la firma -->
     <button type="button" onclick="borrarFirma()">Borrar Firma</button><br>
@@ -263,6 +327,21 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
 
     <!-- ... tu botón de submit u otros campos ... -->
     <input type="submit" value="Generar PDF">
+    <style>
+           input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border-top: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 auto; /* Centra el botón horizontalmente */
+            display: block; /* Hace que el botón ocupe el ancho completo disponible */
+        }
+        </style>
+
     <!-- Script para gestionar la firma -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
