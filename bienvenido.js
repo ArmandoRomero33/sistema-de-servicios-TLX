@@ -12,5 +12,8 @@ function capturarFirma() {
     document.getElementById('datos_firma').value = datosFirma;
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043

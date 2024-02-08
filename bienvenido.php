@@ -20,9 +20,12 @@ if (!isset($_SESSION['usuario'])) {
     <link rel="stylesheet" href="styles/bienvenido.css">
     
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+<<<<<<< HEAD
   
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
 
+=======
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 
 </head>
 <body>
@@ -44,7 +47,12 @@ if (!isset($_SESSION['usuario'])) {
         Alcaldía/Municipio: <input type="text" name="alcaldia_municipio" required><br>
         Estado: <input type="text" name="estado" required><br>
         C.P: <input type="text" name="cp" required><br>
+<<<<<<< HEAD
        
+=======
+        RFC: <input type="text" name="rfc" required><br>
+
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
         Telefono: <input type="text" name="telefono" required><br>
         <h1>Servicio de Internet Fijo en Casa</h1>
 
@@ -64,7 +72,11 @@ if (!isset($_SESSION['usuario'])) {
      Fecha: <input type="date" name="fecha" require><br>
      Hora: <input type="time" name="hora" require><br>
      
+<<<<<<< HEAD
      
+=======
+     Instalacion del equipo: <input type="text" name="instalacion" require><br>
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 
 
      
@@ -178,7 +190,11 @@ if (!isset($_SESSION['usuario'])) {
 
 
 
+<<<<<<< HEAD
 Fecha del cotrato: <input type="date" name="fecha_2" require><br>
+=======
+Fecha: <input type="date" name="fecha_2" require><br>
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 
 
 
@@ -186,6 +202,7 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
 
 
 <h1>Fotografias del INE</h1>
+<<<<<<< HEAD
 <form method="post" action="procesar.php" enctype="multipart/form-data">
     <!-- Otros campos del formulario -->
     <label for="foto1">Foto 1:</label>
@@ -232,6 +249,43 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
             firmaContainer.addEventListener('mouseup', function () {
                 firmaPad.off();
             });
+=======
+
+     
+
+     
+
+        <!-- Campo de carga de archivos para imágenes -->
+        INE_Frontal <input type="file" name="imagen_jpg" id="imagen_jpg"><br>
+        INE_Trasero<input type="file" name="imagen_png"><br>
+
+
+<h1>Firma del suscriptor</h1>
+      
+
+
+
+
+        <!-- Campo para dibujar la firma -->
+        <label>Firma:</label>
+        <canvas id="firmaCanvas" width="400" height="200" style="border:1px solid #000;"></canvas><br>
+
+        <!-- Campo oculto para almacenar la firma como imagen base64 -->
+        <input type="hidden" name="firma" id="firma">
+
+        <!-- Botón para borrar la firma -->
+        <button type="button" onclick="borrarFirma()">Borrar Firma</button><br>
+
+        <!-- ... tu botón de submit u otros campos ... -->
+        <input type="submit" value="Generar PDF">
+    </form>
+
+    <!-- Script para gestionar la firma -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var canvas = document.getElementById('firmaCanvas');
+            var firmaPad = new SignaturePad(canvas);
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 
             // Almacena la firma como imagen base64 en el campo oculto
             document.querySelector('form').addEventListener('submit', function (event) {
@@ -241,6 +295,7 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
 
         // Función para borrar la firma
         function borrarFirma() {
+<<<<<<< HEAD
             var firmaCanvas = document.getElementById('firmaCanvas');
             var firmaPad = new SignaturePad(firmaCanvas);
             firmaPad.clear();
@@ -249,5 +304,12 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
         
 
 
+=======
+            var canvas = document.getElementById('firmaCanvas');
+            var firmaPad = new SignaturePad(canvas);
+            firmaPad.clear();
+        }
+    </script>
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 </body>
 </html>

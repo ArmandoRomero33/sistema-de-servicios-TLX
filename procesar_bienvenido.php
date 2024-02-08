@@ -18,7 +18,11 @@ $colonia = $_POST['colonia'];
 $alcaldia_municipio = $_POST['alcaldia_municipio'];
 $estado = $_POST['estado'];
 $cp = $_POST['cp'];
+<<<<<<< HEAD
 
+=======
+$rfc = $_POST['rfc'];
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 $tefono = $_POST['telefono'];
 $paquete = $_POST['paquete'];    
 $tarifa = $_POST['tarifa'];      
@@ -28,15 +32,22 @@ $serie = $_POST['serie'];
 $equipo = $_POST['equipo'];
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
+<<<<<<< HEAD
 $firmaBase64 = $_POST['firma'];
 
+=======
+$instalacion = $_POST['instalacion'];
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 // Obtener la opción seleccionada
 $opcionSeleccionada = $_POST['opciones'];
 
 $contenido = $_POST['contenido'];
 $contenido2 = $_POST['contenido2'];
 $contenido2 = $_POST['contenido3'];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 $fecha_2 = $_POST['fecha_2'];
 
 $fechaObjeto = new DateTime($fecha_2);
@@ -84,10 +95,13 @@ if (!empty($correo)) {
 
 
 
+<<<<<<< HEAD
 // Decodificar la firma base64 y guardarla en un archivo temporal
 $firmaTmp = tempnam(sys_get_temp_dir(), 'firma');
 file_put_contents($firmaTmp, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $firmaBase64)));
 
+=======
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 
 //---------------------------------------servicios adicionales-- despliege de cuestionario----------
 $servicio1 = $_POST['servicio1'];
@@ -174,7 +188,12 @@ $pdf->Text(190, 69, $cp);
 $pdf->SetXY(85, 83); 
 $pdf->Text(85, 83, $tefono);
 
+<<<<<<< HEAD
 
+=======
+$pdf->SetXY(135, 83); 
+$pdf->Text(135, 83, $rfc);
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 $pdf->SetXY(40, 125); 
 $pdf->Text(40, 125, $paquete);
 $pdf->SetXY(129, 115); 
@@ -199,9 +218,15 @@ $pdf->Text(124, 168, $fecha);
 $pdf->SetXY(174, 168); 
 $pdf->Text(174, 168, $hora);
 $pdf->SetXY(150,162);
+<<<<<<< HEAD
 $pdf->Text(150,162, $calle);
 $pdf->SetXY(-50,-50);
 $pdf->Text(-50,-50, $opcionSeleccionada);
+=======
+$pdf->Text(150,162, $instalacion);
+$pdf->SetXY(0,0);
+$pdf->Text(0,0, $opcionSeleccionada);
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 //----------------------------------referencia transferencia---------
 $pdf->SetXY(81,212);
 $pdf->Text(81,212, $contenido);
@@ -226,10 +251,13 @@ $pdf->SetXY(81,218);
 $pdf->Text(20,216, $contenido3);
 $pdf->SetXY(150,161);
 
+<<<<<<< HEAD
 // Insertar la imagen de la firma en el PDF
 $pdf->Image($firmaTmp, 90, 235, 35, 25);
 
 
+=======
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 
 //=============================================PAGINA2=============================================================//
 
@@ -250,18 +278,25 @@ $pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5
 
 $pdf->SetXY(77,105);
 $pdf->Text(77,105, $correo);
+<<<<<<< HEAD
 // Insertar la imagen de la firma en el PDF
 $pdf->Image($firmaTmp, 158, 97, 35, 25);
 
 // Insertar la imagen de la firma en el PDF
 $pdf->Image($firmaTmp, 50, 110, 35, 25);
+=======
+
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 $pdf->SetXY(88, 213); 
 $pdf->Text(88, 213, $alcaldia_municipio);
 
 $pdf->SetXY(113,213);
 $pdf->Text(113,213, $fecha_2);
+<<<<<<< HEAD
 // Insertar la imagen de la firma en el PDF
 $pdf->Image($firmaTmp, 112, 220, 50, 30);
+=======
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 
 
 $pdf->SetXY(42,100);
@@ -300,6 +335,11 @@ $pdf->Text(190,53, $costo2);
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
 // Insertar imágenes
 $imagenWidth = 85; // Ancho de las imágenes
 $imagenHeight = 50; // Altura de las imágenes
@@ -378,6 +418,7 @@ $pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5
 
 
 //------------------------------------insertar imagenes-------------------------------------
+<<<<<<< HEAD
 /// Obtener la primera fotografía del formulario
 if (isset($_FILES['foto1']) && $_FILES['foto1']['error'] == 0) {
     $foto1Tmp = $_FILES['foto1']['tmp_name'];
@@ -404,3 +445,28 @@ ob_end_flush();
 unlink($firmaTmp);
 unlink($foto1Tmp);
 unlink($foto2Tmp);
+=======
+
+
+
+// ...
+
+// Insertar imagen JPG
+if (!empty($_FILES['imagen_jpg']['tmp_name'])) {
+    $pdf->Image($_FILES['imagen_jpg']['tmp_name'], 50, 50, $imagenWidth , $imagenHeight);
+}
+
+// Insertar imagen PNG con un espacio de 3 cm (aproximadamente 28.35 unidades) entre las imágenes
+if (!empty($_FILES['imagen_png']['tmp_name'])) {
+    $pdf->Image($_FILES['imagen_png']['tmp_name'], 50, 50 + $imagenHeight + 28.35, $imagenWidth, $imagenHeight);
+}
+
+// ...
+
+
+
+ob_start();
+$pdf->Output('Contrato.pdf', 'I');  // Cambiado 'I' por 'D' para forzar la descarga
+ob_end_flush();
+?>
+>>>>>>> 2905028ec438c44af82327f2a3a67c7d9846b043
