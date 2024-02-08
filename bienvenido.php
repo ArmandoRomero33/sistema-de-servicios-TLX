@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario'])) {
     <title>Bienvenido, <?php echo $_SESSION['usuario']; ?>!</title>
     <!-- Agrega la biblioteca signature_pad -->
     <script src="https://unpkg.com/signature_pad"></script>
-    <link rel="stylesheet" href="styles/bienvenido.css">
+    <link rel="stylesheet" href="bienvenido.css">
     
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
   
@@ -26,9 +26,15 @@ if (!isset($_SESSION['usuario'])) {
 
 </head>
 <body>
+<nav>
+        <!-- Puedes agregar enlaces u otros elementos aquí -->
+        <ul>
+        <h2>Bienvenido, <?php echo $_SESSION['usuario']; ?></h2>
+          <h2>Te encuentras en el módulo de contratos.</h2>
+        </ul>
+    </nav>
     
-    <h2>Bienvenido, <?php echo $_SESSION['usuario']; ?>Te encuentras en el módulo de contratos es el primer paso hacia una experiencia única en conectividad.</h2>
- 
+   
     <p><a href="cerrar_sesion.php" class="logout-btn">Cerrar sesión</a></p>
 
     <form action="procesar_bienvenido.php" method="post" enctype="multipart/form-data">
@@ -227,8 +233,8 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
 <h1>Firma del suscriptor</h1>
 
     <!-- Contenedor para el canvas de la firma -->
-<div id="firmaContainer" style="border: 1px solid #000; width: 280px; height: 200px; position: relative;">
-    <canvas id="firmaCanvas" width="280" height="200" style="border: 1px solid #000; position: absolute; left: 0; top: 0;"></canvas>
+<div id="firmaContainer" style="border: 1px solid #000; width: 100%; height: 200px; position: relative;">
+    <canvas id="firmaCanvas" width="600" height="200" style="border: 1px solid #000; position: absolute; left: 0; top: 0;"></canvas>
 </div>
 <br>
 
@@ -237,6 +243,23 @@ Fecha del cotrato: <input type="date" name="fecha_2" require><br>
 
     <!-- Botón para borrar la firma -->
     <button type="button" onclick="borrarFirma()">Borrar Firma</button><br>
+    <style>
+  /* Estilos para el botón */
+  button {
+    background-color: #ff0000; /* Color de fondo rojo */
+    color: #ffffff; /* Color del texto blanco */
+    border: 1px solid #ff0000; /* Borde rojo */
+    padding: 10px 20px; /* Ajusta el espaciado interno según sea necesario */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 5px; /* Añade esquinas redondeadas */
+  }
+
+  /* Cambia el color del texto cuando se pasa el ratón sobre el botón */
+  button:hover {
+    color: #ff0000;
+    background-color: #ffffff;
+  }
+</style>
 
     <!-- ... tu botón de submit u otros campos ... -->
     <input type="submit" value="Generar PDF">

@@ -3,6 +3,7 @@ body {
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
+    color: #0056b3;
 }
 
 h1 {
@@ -11,7 +12,7 @@ h1 {
 }
 
 h2 {
-    color: #000000;
+    color: #fa1414;
 }
 
 p {

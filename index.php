@@ -9,8 +9,8 @@
 <body>
     <form action="procesar_login.php" method="post">
         <h2>🌐 ¡Bienvenido a la Conexión del Futuro!</h2>
-        Usuario: <input type="text" name="usuario" required><br>
-        Contraseña: <input type="password" name="contrasena" required><br>
+       <h2> Usuario: <input type="text" name="usuario" required><br></h2>
+        <h2>Contraseña: <input type="password" name="contrasena" required><br></h2>
         <input type="submit" value="Iniciar sesión">
     </form>
 </body>

@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #65b2ff;
     margin: 0;
     padding: 0;
 }
@@ -11,7 +11,7 @@ h1 {
 }
 
 h2 {
-    color: #007bff;
+    color: #ffffff;
 }
 
 p {
@@ -146,11 +146,7 @@ select#opciones_servicios {
 
 
 /* Estilos para el formulario de métodos de pago */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 20px;
-}
+
 
 label {
     font-weight: bold;
@@ -185,3 +181,35 @@ p {
     margin: 5px 0;
 }
 
+
+
+
+
+
+
+nav {
+    background-color: #007bff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}

@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #3498db; /* Fondo azul */
+    background-color: #3498db;
     color: #fff;
     text-align: center;
     margin: 0;
@@ -16,7 +16,7 @@ body {
 form {
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
     border-radius: 8px;
     width: 300px;
 }
@@ -27,16 +27,18 @@ h2 {
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Mayor espaciado interno */
     margin: 10px 0;
     box-sizing: border-box;
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 5px;
 }
 
 input[type="submit"] {
-    background-color: #3498db; /* Botón azul */
+    background-color: #3498db;
     color: #fff;
     border: none;
-    padding: 12px;
+    padding: 14px; /* Mayor espaciado interno */
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
