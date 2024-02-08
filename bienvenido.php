@@ -79,6 +79,7 @@ if (!isset($_SESSION['usuario'])) {
 
 <label for="opciones">Seleccione un metodo de pago:</label>
 <select id="opciones" name="opciones" require>
+<option value="">---seleccione una opcion---</option>
     <option value="opcion1">Efectivo</option>
     <option value="opcion2">Transferencia</option>
   
@@ -131,42 +132,63 @@ if (!isset($_SESSION['usuario'])) {
 
     
     <!-- ....................... (Despliege de preguntas para servicios extra)............... -->
-
     <label for="opciones_servicios">¿Deseas agregar servicios adicionales?</label>
-    <select id="opciones_servicios" name="opciones_servicios">
-        <option value="no">No</option>
-        <option value="si">Sí</option>
-    </select>
+<select id="opciones_servicios" name="opciones_servicios">
+    <option value="">---seleccione una opcion---</option>
+    <option value="no">No</option>
+    <option value="si">Sí</option>
+</select>
 
-    <!-- Contenedor para el nuevo cuestionario (inicialmente oculto) -->
-    <div id="cuestionario_servicios" style="display: none;">
-        <!-- Aquí coloca tu nuevo cuestionario -->
-        <p>Servicio Adicional</p>
-        Servicio1<input type="text" name="servicio1"><br>
-        Descripcion: <input type="text" name="descripcion1"><br>
-        Costo <input type="text" name="costo1"><br>
+<!-- Contenedor para el nuevo cuestionario (inicialmente oculto) -->
+<div id="cuestionario_servicios" style="display: none;">
+    <!-- Aquí coloca tu nuevo cuestionario -->
+    <p>Servicio Adicional</p>
+    Servicio1<input type="text" name="servicio1" value="-------------------------------------------------------------------"><br>
+    Descripcion: <input type="text" name="descripcion1" value="----------------------------------------------------------------------"><br>
+    Costo <input type="text" name="costo1" value="-----"><br>
 
-        <p>Servicio Adicional</p>
-        Servicio2<input type="text" name="servicio2"><br>
-        Descripcion: <input type="text" name="descripcion2"><br>
-        Costo <input type="text" name="costo2"><br>
-        
-     
-    </div>
+    <p>Servicio Adicional</p>
+    Servicio2<input type="text" name="servicio2" value="--------------------------------------------------------------------"><br>
+    Descripcion: <input type="text" name="descripcion2" value="-----------------------------------------------------------------------"><br>
+    Costo <input type="text" name="costo2" value="-------"><br>
+</div>
 
-    <!-- Botón para mostrar el cuestionario -->
-    <button type="button" id="btn_mostrar_cuestionario">+Agrega Servicios adicionales.</button>
+<!-- Botón para mostrar el cuestionario -->
 
-    <!-- Script JavaScript para manejar la visibilidad del cuestionario -->
-    <script>
-        document.getElementById('btn_mostrar_cuestionario').addEventListener('click', function() {
-            var seleccionado = document.getElementById('opciones_servicios').value;
-            var cuestionario = document.getElementById('cuestionario_servicios');
 
-            // Muestra u oculta el cuestionario de servicios adicionales según la selección
-            cuestionario.style.display = (seleccionado === 'si') ? 'block' : 'none';
-        });
-    </script>
+<!-- Script JavaScript para manejar la visibilidad y valores predeterminados del cuestionario -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ejecuta la lógica al cargar la página
+        mostrarOcultarCuestionario();
+
+        // Agrega un evento al cambio de selección
+        document.getElementById('opciones_servicios').addEventListener('change', mostrarOcultarCuestionario);
+
+        // Agrega un evento al botón para mostrar el cuestionario
+        document.getElementById('btn_mostrar_cuestionario').addEventListener('click', mostrarOcultarCuestionario);
+    });
+
+    function mostrarOcultarCuestionario() {
+        var seleccionado = document.getElementById('opciones_servicios').value;
+        var cuestionario = document.getElementById('cuestionario_servicios');
+
+        // Muestra u oculta el cuestionario de servicios adicionales según la selección
+        cuestionario.style.display = (seleccionado === 'si') ? 'block' : 'none';
+
+        // Establece valores predeterminados cuando la opción seleccionada es "No"
+        if (seleccionado === 'no') {
+            document.querySelector('#cuestionario_servicios [name="servicio1"]').value = '-------';
+            document.querySelector('#cuestionario_servicios [name="descripcion1"]').value = '-------';
+            document.querySelector('#cuestionario_servicios [name="costo1"]').value = '-------';
+
+            document.querySelector('#cuestionario_servicios [name="servicio2"]').value = '-------';
+            document.querySelector('#cuestionario_servicios [name="descripcion2"]').value = '-------';
+            document.querySelector('#cuestionario_servicios [name="costo2"]').value = '-------';
+        }
+    }
+</script>
+
 
 
 
