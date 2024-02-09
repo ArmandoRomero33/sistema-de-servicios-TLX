@@ -22,6 +22,9 @@ if (!isset($_SESSION['usuario'])) {
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
   
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+<!-- #regi-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
 
 
 </head>
@@ -31,10 +34,14 @@ if (!isset($_SESSION['usuario'])) {
         <ul>
         <h2>Bienvenido, <?php echo $_SESSION['usuario']; ?></h2>
          
-          <li><img src="img/tlax.png" width="400"></li>
+        <li style="float: right; margin-top: -76.5px;"><img src="img/tlax_com_2.png" width="280"></li>
+
+
           
         </ul>
     </nav>
+    
+  
     
    
     <p><a href="cerrar_sesion.php" class="logout-btn">Cerrar sesión</a></p>
@@ -57,7 +64,11 @@ if (!isset($_SESSION['usuario'])) {
         <h1>Servicio de Internet Fijo en Casa</h1>
 
         Paquete: <input type="text" name="paquete" required><br>
-        Tarifa: <input type="number" name="tarifa" required><br>
+      
+        <div style="display: flex; align-items: center;">
+  Tarifa:<input type="number" name="tarifa" required>
+  <span style="margin-left: 5px;">$</span>
+</div>
      
      <h1>Datos del equipo Compra Venta</h1>
 
@@ -155,12 +166,19 @@ if (!isset($_SESSION['usuario'])) {
     <p>Servicio Adicional</p>
     Servicio1<input type="text" name="servicio1" value="-------------------------------------------------------------------"><br>
     Descripcion: <input type="text" name="descripcion1" value="----------------------------------------------------------------------"><br>
-    Costo <input type="number" name="costo1" value="-----"><br>
+    
+    <div style="display: flex; align-items: center;">
+  Tarifa:<input type="number" name="costo1" >
+  <span style="margin-left: 5px;">$</span>
+</div>
 
     <p>Servicio Adicional</p>
     Servicio2<input type="text" name="servicio2" value="--------------------------------------------------------------------"><br>
     Descripcion: <input type="text" name="descripcion2" value="-----------------------------------------------------------------------"><br>
-    Costo <input type="number" name="costo2" value="-------"><br>
+    <div style="display: flex; align-items: center;">
+  Tarifa:<input type="number" name="costo2" >
+  <span style="margin-left: 5px;">$</span>
+</div>
 </div>
 
 <!-- Botón para mostrar el cuestionario -->
@@ -286,6 +304,8 @@ Fecha del cotrato: <input type="date" name="fecha_2" required><br>
             background-color: #0056b3;
         }
     </style>
+    
+    
 
 
 

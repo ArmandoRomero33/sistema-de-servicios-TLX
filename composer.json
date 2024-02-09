@@ -3,7 +3,8 @@
         "microsoft/microsoft-graph": "^2.2",
         "guzzlehttp/guzzle": "^7.8",
         "google/apiclient": "^2.15",
-        "setasign/fpdf": "^1.8"
+        "setasign/fpdf": "^1.8",
+        "intervention/image": "^3.3"
     },
     "config": {
         "allow-plugins": {

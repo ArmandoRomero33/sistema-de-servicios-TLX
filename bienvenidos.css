@@ -189,8 +189,8 @@ p {
 
 nav {
     background-color: #007bff;
-    padding: 10px 20px;
-    margin-bottom: 20px;
+    padding: 10px 25px;
+    margin-bottom: 30px;
 }
 
 nav ul {
@@ -213,3 +213,5 @@ nav a {
 nav a:hover {
     text-decoration: underline;
 }
+
+
