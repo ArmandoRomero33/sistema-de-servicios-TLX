@@ -385,28 +385,23 @@ $pdf->Image($templateImg, 15, 0, $pdf->getPageWidth()*1, $pdf->getPageHeight()-5
 //------------------------------------insertar imagenes-------------------------------------
 
 // Obtener la primera fotografía del formulario
+
+// Obtener la primera fotografía del formulario
 if (isset($_FILES['foto1']) && $_FILES['foto1']['error'] == 0) {
     $foto1Tmp = $_FILES['foto1']['tmp_name'];
 
-    // Aplicar recorte a la primera imagen
-    $imagen1 = new Imagick($foto1Tmp);
-    $imagen1->cropThumbnailImage(70, 80); // Ajusta el tamaño del recorte según tus necesidades
-
-    // Insertar la primera imagen recortada en el PDF
-    $pdf->Image('@' . $imagen1->getImageBlob(), 10, 10, 70, 80); // Ajusta las coordenadas y dimensiones según tu diseño
+    // Insertar la primera imagen en el PDF
+    $pdf->Image($foto1Tmp, 10, 10, 70,80); // Ajusta las coordenadas y dimensiones según tu diseño
 }
 
 // Obtener la segunda fotografía del formulario
 if (isset($_FILES['foto2']) && $_FILES['foto2']['error'] == 0) {
     $foto2Tmp = $_FILES['foto2']['tmp_name'];
 
-    // Aplicar recorte a la segunda imagen
-    $imagen2 = new Imagick($foto2Tmp);
-    $imagen2->cropThumbnailImage(70, 80); // Ajusta el tamaño del recorte según tus necesidades
-
-    // Insertar la segunda imagen recortada en el PDF
-    $pdf->Image('@' . $imagen2->getImageBlob(), 10, 100, 70, 80); // Ajusta las coordenadas y dimensiones según tu diseño
+    // Insertar la segunda imagen en el PDF
+    $pdf->Image($foto2Tmp, 10, 100, 70, 80); // Ajusta las coordenadas y dimensiones según tu diseño
 }
+
 
 // Resto del código...
 
